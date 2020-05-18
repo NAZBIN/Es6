@@ -1,4 +1,4 @@
-const getJson = function(){
+const getJson = function(url){
     const promise = new Promise(function(resolve, reject){
         const handler = function(){
             if(this.readyState !== 4) return;
@@ -19,3 +19,21 @@ const getJson = function(){
 }
 
 getJson("/posts.json").then((resolve) => console.log(resolve),(reject) => console.log("error"+reject))
+
+
+//生成一个promise对象数组
+const promises = [1,2,3,4].map((index)=>{
+    return getJson('/post'+ index +".json");
+})
+
+Promise.all(promises).then((posts) => {}).catch((reason) => {});
+
+
+
+var myIterable = [];
+myIterable[Symbol.iterator] = function* (){
+    yield 1;
+    yield 2;
+    yield 3;
+};
+[...myIterable];
