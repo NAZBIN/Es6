@@ -10,7 +10,7 @@ function debounce(fn, delay){
 }
 //节流
 function throttle(fn, dur){
-    const [last,timer,args] = [null,null];
+    const [last,timer] = [null,null];
     return (...args) => {
         let now = new Date();
         if(last && now <last + delay){
