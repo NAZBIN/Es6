@@ -42,7 +42,7 @@ function getQuery(input) {
     });
     return output;
 }
-
+const str = window.location.search;
 console.log(getQuery(str));
 console.timeEnd('global');
 
