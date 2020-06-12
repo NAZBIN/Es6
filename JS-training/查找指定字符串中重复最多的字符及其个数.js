@@ -1,22 +1,18 @@
 // output: 'aaa' 3
 
-//思路：首先对数组去重然后统计每个字符的个数最后输出最多的
-const computeMaxRepeat = (s) => {
-  if (!typeof s === "string") return;
-
+const computeMaxReapt = (s) => {
   const keys = Array.from(new Set(s.split("")));
-  let values = new Array(keys.length).fill(0);
-  let max = values;
+  const values = Array(keys.length).fill(0);
 
   for (let i = 0; i < s.length; i++) {
-    const index = keys.indexOf(s[i]);
-    index > 0 ? (values[index] += 1) : null;
+    const temp = keys.indexOf(s[i]);
+    console.log(temp);
+    temp != -1 ? values[temp]++ : null;
   }
 
-  max = Math.max.apply(Array, values);
-
-  return keys[values.indexOf(max)].repeat(max) + " " + max; // aaa 3;
+  console.log(
+    keys[values.indexOf(Math.max(...values))] + " ：" + Math.max(...values)
+  );
 };
 
-const str = "bcaaammo";
-console.log(computeMaxRepeat(str));
+computeMaxReapt("afsafafaavvsb");
