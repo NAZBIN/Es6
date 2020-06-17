@@ -1,0 +1,3 @@
+基于现有对象,提供新对象的_proto_
+
+Object.create(_, _) 的第二个参数相当于Object.defineProperty的第二个参数. 用来定义/改写一个属性.

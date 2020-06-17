@@ -16,17 +16,17 @@
  *   padStart('abc', 1);          // 'abc'
  */
 
-function padStart(str, len, chars) {
-  const [cur, add, output] = [str.length, chars.length, str];
-  const surplus = len - cur;
-  let temp = [];
+const findRepeatNumInArray = (arr) => {
+  let hashMap = new Map();
   
-  for (let i = 0; i < surplus-1; i++) {
-     let j = i > add - 1? i - add : i;
-     temp.push(chars[j]);
+  for (let i of arr) {
+    hashMap.has(i) ? hashMap.set(i,true) : hashMap.set(i,false);  
   }
-  
-  return temp.toString().split(',').join('') + output;
-}
+  console.log(...hashMap.keys());
+  //找到重复项.
+  return Array.from(hashMap).filter((item) => item[1] === true);
 
-console.log(padStart('abc', 10, 'foo'));
+};
+
+let result = findRepeatNumInArray([1,2,3,2,4,6,5,3]);
+console.log(result)

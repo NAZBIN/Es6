@@ -21,6 +21,7 @@ let person2 = {
 const name = "window";
 
 person1.sayHi.call(person2); //Daming.
+console.log(person2.name)
 
 //  ---------------手动实现 call 方法(无参)----------------
 // Function.prototype.MyCall = function (context = window) {
@@ -55,3 +56,5 @@ function entity(name, age) {
   this.type = "animal";
 }
 console.log(new entity("tom", 16).name);
+
+
