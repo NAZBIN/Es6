@@ -1,0 +1,15 @@
+实现响应式在于如何追踪变化.
+
+1.Vue 使用了Object.defineProperty()将传入data的对象的property全部转为getter/setter。 (对对象进行getter/setter转化)
+这些getter和setter对用户不可见，但vue能够追踪依赖
+
+2.每个组件实例都对应一个watcher实例， 会在组件的渲染过程中把接触过的数据property记录为依赖。
+之后当依赖项的setter触发时，会通知给watcher，从而使得关联的组件重新渲染
+
+
+
+Vue鼓励用户使用数据驱动的方式来思考，避免操作DOM。 但有时候也无法完全避免.
+那Vue在更新DOM的时候是异步更新的，相应的有一个事件队列。
+如果想在数据完成更新后进行一些操作  可以使用 vue.nextTick(callback) , 这样回调函数将在DOM完成更新后调用.
+vue.nextTick(callback)会返回一个Promise对象.
+

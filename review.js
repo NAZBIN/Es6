@@ -25,13 +25,13 @@ Function.prototype.mycall = function (context = window) {
 person1.sayHi.mycall(person2, 1, 2);
 
 Function.prototype.myapply = function (context = window) {
-    context.fn = this;
-    let args = arguments[1];
-    let result = null;
+  context.fn = this;
+  let args = arguments[1];
+  let result = null;
 
-    result = args ? context.fn(...args) : context.fn();
-    delete context.fn;
-    return result;
+  result = args ? context.fn(...args) : context.fn();
+  delete context.fn;
+  return result;
 };
 
-person1.sayHi.myapply(person2, [1,2]);
+person1.sayHi.myapply(person2, [1, 2]);
