@@ -1,0 +1,3 @@
+undefined是派生自null的;
+null指的是变量未指向任何对象;
+undefined是声明但没赋值;

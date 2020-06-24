@@ -1,0 +1,4 @@
+constructor是object的属性之一
+intanceof是运算符
+
+instanceof可以用来判断构造函数的protoype是否存在于目标对象的原型链上.

@@ -1,0 +1,5 @@
+1.service worker -> 必须HTTPS协议,运行在浏览器背后的独立线程,可对缓存进行控制
+
+2.memory cache -> 缓存已加载的资源, tab关掉内存释放.
+
+3.Disk cache -> 硬盘, 读取速度慢 但容量大 使用的多.
