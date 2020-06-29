@@ -1,0 +1,20 @@
+作用域链是由词法作用域决定的 ,
+
+例子：
+function bar(){
+    console.log(myname)
+}
+
+function foo(){
+    var myname = "geek"
+    bar()
+}
+var myname = "wenbin"
+foo()
+
+
+最终console的是"wenbin",
+why?  ->首先理解作用域链的概念：自身查找不到的时候通过执行上下文中的outer去上一层继续查找
+而这里, bar和foo的顶层都是全局执行上下文, 所以console出的是"wenbin"
+
+词法作用域是代码阶段就决定好的，跟怎么调用没关系,是由代码声明位置决定的
