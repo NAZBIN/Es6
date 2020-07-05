@@ -1,0 +1,7 @@
+Proxy:
+Proxy可以直接监听对象,而非属性
+Proxy性能更好.
+Proxy拦截方法多.
+
+Object.defineProperty()   emmm 兼容性更好
+
