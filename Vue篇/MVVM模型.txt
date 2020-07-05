@@ -1,0 +1,20 @@
+model-view-viewModel  也是源自MVC模型.
+
+MVVC核心是viewModel层, VM向上和View层进行双向数据绑定,
+向下与Model通过接口进行数据交互.起了承上启下的作用.
+
+Model对于前端来说就是后端提供的api接口
+view用html css来构建.
+
+双向绑定：
+vue双向绑定主要通过监听事件来实现, 比如文本框内容发生变化就是view更新data，
+data发生变化，就是data更新view.
+vue对其data中的属性对象进行了封装,现在使用的还是Object.defineProperty.内置有set和get方法,
+getter的时候对依赖进行收集, setter的时候触发依赖.
+除此之外，还是要一个Observer监视器，用来监听数据的改变，如果有数据改变就会通知对应的组件,
+也就是订阅者watcher，看是否需要改变。
+还要有一个Dep类作为订阅器，用来收集订阅者watcher 对Observer和watcher进行统一管理。
+还有有一个解析器complie，解析vue节点,绑定更新函数，添加监听数据的订阅者。
+
+vue是通过遍历数组和递归遍历对象，使用拦截器覆盖了Array.property上的一些属性，从而达到也能
+利用Object.defineProperty()也能对对象和数组的部分方法进行监听.
