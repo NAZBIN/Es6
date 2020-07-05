@@ -1,0 +1,6 @@
+可以在 created()  beforeMount() mounted()中进行调用。
+最好还是在created()中调用. ssr服务端渲染不支持beforeMount、mounted函数
+在 created() 中可以更快的获取到服务端数据，减少页面loading时间。
+
+扩充：
+在mounted被调用前，vue已经将编译好的模板挂载到页面上了,所以在mounted中可以访问操作dom

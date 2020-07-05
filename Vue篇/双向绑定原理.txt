@@ -1,0 +1,13 @@
+v-model 实现数据的双向绑定,
+通过打印data中的对象可以发现. 每个对象里都有一个set和get方法，vue是通过Object.defineProperty()来
+实现数据劫持的.
+如何知道数据改变了？ 通过在Object.defineProperty里设置一个set函数就知道了
+
+Object.defineProperty(Book,name,{
+    get(){},
+    set(){}
+})
+
+要有一个Observer监听器对数据进行劫持监听. 如果数据改变了就要通知相应组件的watcher(订阅者)是否需要更新
+所以需要有一个Dep类作为订阅器来专门收集这些订阅者，然后在监听器Observer和订阅者Watcher之间进行统一管理。
+还需要一个解析器compile,可以扫描和解析每个节点的相关指令，

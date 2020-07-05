@@ -11,3 +11,7 @@ Vue鼓励用户使用数据驱动的方式来思考，避免操作DOM。 但有�
 如果想在数据完成更新后进行一些操作  可以使用 vue.nextTick(callback) , 这样回调函数将在DOM完成更新后调用.
 vue.nextTick(callback)会返回一个Promise对象.
 
+
+对于Array的变化侦测:  ES6之前没有元编程能力,之后我觉得vue可能会用Proxy来代替Vue.$set
+现在vue也是通过用一个拦截器去覆盖Array.prototype,每次都数组进行操作都是使用的拦截器中的方法.比如常规的使用push方法不能得到响应式更新,但是把push放到写的拦截器里就可以.
+Array在getter中收集依赖，在setter中触发依赖.

@@ -1,0 +1,69 @@
+#只用于父子：
+1.推荐使用props emit(子组件主动发信息给父组件)
+
+2.children parents 官方教程更推荐使用props emit.
+
+#可用于：父子/爷孙
+3.provide inject  父/祖组件提供provide. (提供例子在底部👇)
+
+4.ref: ref绑定到DOM元素上时，指的就是当前的DOM元素，
+当绑定到子组件上时，可以通过this.$refs 拿到子组件的数据或方法. (父组件主动去子组件中拿信息)
+
+5.vuex做全局状态管理,比如主题色信息等.
+
+6.$attrs与 $listeners
+
+//祖
+export default{
+    name:'爷爷A',
+    data(){
+        return {val: true}
+    },
+    provide:{
+        for: "mainVal"
+    },
+    components:{
+        爸爸B
+    }
+}
+
+//爸爸
+<template>
+    <div>
+        {{mainVal}}
+        <儿孙C></儿孙C>
+    </div>
+</template>
+<script>
+    export default{
+        name:'爸爸B',
+        inject:['for'],
+        data(){
+            return {
+                mainVal: this.for
+            }
+        }，
+        components:{
+            儿孙C
+        }
+    }
+</script>
+
+//儿孙C
+<template>
+    <div>
+        {{demo}}
+    </div>
+</template>
+<script>
+    export default{
+        name:'儿孙C'
+    },
+    inject:['for'],
+    data(){
+        return {
+            demo: this.for
+        }
+    }
+</script>
+
