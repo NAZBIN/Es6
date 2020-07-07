@@ -19,21 +19,40 @@
 // }, 3000);
 // console.log("end");
 
-function settimeout(callback, delay) {
-  const startTime = Date.now();
+// function settimeout(callback, delay) {
+//   const startTime = Date.now();
+//   let timer;
+//   const loop = () => {
+//     timer = window.requestAnimationFrame(loop);
+//     if (Date.now() - startTime >= delay) {
+//       callback();
+//       window.cancelAnimationFrame(timer);
+//     }
+//   };
+//   window.requestAnimationFrame(loop);
+// }
+// console.log("start");
+
+// settimeout(() => {
+//   console.log("success");
+// }, 3000);
+
+// console.log("end");
+
+function setTimeout(callback, delay) {
   let timer;
+  let now = Date.now();
   const loop = () => {
     timer = window.requestAnimationFrame(loop);
-    if (Date.now() - startTime >= delay) {
+    if (Date.now() - now >= delay) {
       callback();
-      window.cancelAnimationFrame(timer);
+      cancelAnimationFrame(timer);
     }
   };
   window.requestAnimationFrame(loop);
 }
-console.log("start");
 
-settimeout(() => {
+setTimeout(() => {
   console.log("success");
 }, 3000);
 

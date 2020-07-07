@@ -38,6 +38,10 @@ myPromise.prototype.then = function (fulfilled, rejected) {
 
 var p = new myPromise(function (resolve, reject) {
   resolve(1);
+}).then((res) => console.log(res));
+
+var p = new myPromise(function (resolve, reject) {
+  resolve(1);
 });
 
 p.then((res) => console.log(res));

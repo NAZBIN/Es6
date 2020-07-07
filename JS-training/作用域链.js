@@ -3,7 +3,7 @@ function bar() {
   let test1 = 100;
   if (1) {
     let myName = "Chrome浏览器";
-    console.log(test);  //1
+    console.log(test); //1
   }
 }
 function foo() {

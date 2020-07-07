@@ -7,6 +7,11 @@ output: {"userId":293019239304,"title":"我的双11"}
 const str =
   "http://www.taobao.com/1111/my/index.html?userId=293019239304&title=我的双11";
 
+function getQueryFun(input) {
+  let arr = input.split("?")[1];
+  console.log(arr);
+}
+
 function getQuery(input) {
   // judge
 
@@ -25,6 +30,18 @@ function getQuery(input) {
 }
 
 console.log(getQuery(str)); // =>  {"userId":293019239304,"title":"我的双11"}
+
+function queryHandler(input) {
+  let result = {};
+  let readyHandles = input.split("?")[1].split("&");
+  for (let i of readyHandles) {
+    let combine = i.split("=");
+    Object.assign(result, { [combine[0]]: combine[1] });
+  }
+  return result;
+}
+
+queryHandler(str);
 
 console.time("global");
 const str =
@@ -80,6 +97,36 @@ function Foo(func, wait) {
     }
   };
 }
+function Foo(fun, wait) {
+  if (typeof Foo !== "function") {
+    throw new TypeError("error");
+  }
+  let timer;
+  let last;
+
+  return function () {
+    let now = Date.now();
+    if (last && now - last < wait) {
+      clearTimeout(timer);
+      timer = setTimeout(() => {
+        fun.apply(this, arguments);
+        last = now;
+      }, wait);
+    } else {
+      fun.apply(this, arguments);
+      last = now;
+    }
+  };
+}
+
+function test() {
+  console.log("success");
+}
+
+let func = Foo(test, 2000);
+
+func();
+func();
 
 /**
  * 字符串填充
@@ -132,3 +179,15 @@ function padStart(str, len, chars = " ") {
 }
 
 console.log(padStart("abc", 10, "foo"));
+
+function padStart(str, len, chars = "") {
+  if (len < str.length) return str;
+  const suplus = len - str.length;
+  const refer =
+    suplus > chars.length
+      ? chars.repeat(Math.ceil(suplus / chars.length))
+      : chars;
+  return refer.slice(0, suplus) + str;
+}
+
+console.log(padStart("1235", 12, "aabbcc"));

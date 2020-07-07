@@ -8,12 +8,13 @@ function debounce(fn, delay) {
     }, delay);
   };
 }
+
 //节流
 function throttle(fn, delay) {
   const [last, timer] = [null, null];
   return (...args) => {
-    let now = new Date();
-    if (last && now < last + delay) {
+    let now = Date.now();
+    if (last && now - last < delay) {
       clearTimeout(timer);
       timer = setTimeout(() => {
         fn.apply(this, args);

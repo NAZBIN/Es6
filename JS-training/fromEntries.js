@@ -27,7 +27,7 @@ console.log(Object.is(NaN, NaN));
 console.log(NaN === NaN);
 
 console.log(Object.values(arr));
-console.log(arr.toString());
+console.log(typeof arr.toString());
 console.log(obj.toString());
 //Object.fromEntries() 是 Object.entries()的反转
 
