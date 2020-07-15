@@ -6,3 +6,5 @@
 //单个任务执行时间过久,采用回调的方式滞后执行
 
 //
+
+// Promise的resolve reject.  mutationObserver  , setTimeout宏任务.

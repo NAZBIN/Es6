@@ -1,6 +1,6 @@
 model-view-viewModel  也是源自MVC模型.
 
-MVVC核心是viewModel层, VM向上和View层进行双向数据绑定,
+MVVM核心是viewModel层, VM向上和View层进行双向数据绑定,
 向下与Model通过接口进行数据交互.起了承上启下的作用.
 
 Model对于前端来说就是后端提供的api接口

@@ -31,3 +31,23 @@ function logInOrder(urls) {
         console.log(await result);
     }
 }
+
+//异步按顺序完成一组操作-> 顺序继发 和 顺序并发(更优)
+
+function logInOrder(urls){
+    for(const url of urls){
+        const response = await fetch(url);
+        console.log(await response.text());
+    }
+}
+
+function logInorder(urls){
+    const resWrapper = urls.map(async(url) => {
+        const response = await fetch(url);
+        return response.text();
+    })
+    //顺序以此输出
+    for(const result of textPromises){
+        console.log(await result);
+    }
+}
