@@ -1,0 +1,6 @@
+1.Store
+
+import { createStore} from "redux"
+const store = createStore(fn); //接收另一个函数作为参数
+
+贴士：应用中不要创建多个store, =>使用 { combineReducer }来把多个reducer创建成一个根reducer

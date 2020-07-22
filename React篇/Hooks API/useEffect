@@ -1,0 +1,20 @@
+useEffect(()  =>  {
+  // Async Action
+}, [dependencies])
+上面用法中，useEffect()接受两个参数。第一个参数是一个函数，异步操作的代码放在里面。
+第二个参数是一个数组，用于给出 Effect 的依赖项，只要这个数组发生变化，useEffect()就会执行。第二个参数可以省略，这时每次组件渲染时，就会执行useEffect()。
+
+const usePerson = (personId) => {
+    const [loading,setLoading] = useState(true);
+    const [person,setPerson] = useState({});
+    
+    useEffect(()=>{
+        setLoading(true);
+    },[personId])
+
+    return [loading,person];
+}
+
+const Person = ({personId}) => {
+    const [loading, person] = usePerson(personId);
+}

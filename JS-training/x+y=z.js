@@ -14,7 +14,7 @@ getNums(arr, 9);
 
 function getNumssss(arr, sum) {
   let result = [];
-  arr.map((i) => {
+  arr.forEach((i) => {
     let suplus = sum - i;
     arr.includes(suplus) ? result.push([i, suplus]) : null;
   });

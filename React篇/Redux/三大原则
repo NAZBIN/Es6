@@ -1,0 +1,51 @@
+👉一：State是可读的
+    唯一改变state的方法->触发action   (所有的修改都被集中化处理)
+
+👉二：单一数据源
+    整个应用的 state 被储存在一棵 object tree 中，并且这个 object tree 只存在于唯一一个 store 中。
+
+👉三：使用纯函数来执行修改
+    为了描述 action 如何改变 state tree ，你需要编写 reducers。
+
+
+store.dispatch({
+    type: 'COMPLETE_TODO',
+    index: 1
+})
+
+function visibilityFilter(state = 'SHOW_ALL', action) {
+  switch (action.type) {
+    case 'SET_VISIBILITY_FILTER':
+      return action.filter
+    default:
+      return state
+  }
+}
+
+function todos(state = [], action) {
+  switch (action.type) {
+    case 'ADD_TODO':
+      return [
+        ...state,
+        {
+          text: action.text,
+          completed: false
+        }
+      ]
+    case 'COMPLETE_TODO':
+      return state.map((todo, index) => {
+        if (index === action.index) {
+          return Object.assign({}, todo, {
+            completed: true
+          })
+        }
+        return todo
+      })
+    default:
+      return state
+  }
+}
+
+import { combineReducer, createStore } from 'redux'
+let reducer = combineReducers({visibilityFilter, todos});
+let store = createStore(reducer);

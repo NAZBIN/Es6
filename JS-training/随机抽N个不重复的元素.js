@@ -3,10 +3,11 @@ const sampling = (arr, n) => {
   let result = [];
   while (trigger) {
     const ranNum = Math.floor(Math.random() * arr.length);
-    result.length !== n && result.indexOf(arr[ranNum]) === -1
-      ? result.push(arr[ranNum])
-      : 0;
-    result.length === n ? (trigger = !trigger) : 0;
+    result.length !== n &&
+      result.indexOf(arr[ranNum]) === -1 &&
+      result.push(arr[ranNum]);
+
+    result.length === n && (trigger = !trigger);
   }
   return result;
 };

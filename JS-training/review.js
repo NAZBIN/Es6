@@ -1,10 +1,6 @@
-let obj = {
-  car: "保时捷",
+const test = (arr) => {
+  let s = arr.indexOf(53);
+  console.log(s);
 };
 
-let proxy = new Proxy(obj, {
-  get: function (target, prop) {
-    return prop in target ? target[prop] : new ReferenceError("error");
-  },
-});
-console.log(proxy.car);
+test([2, 3, 1]);

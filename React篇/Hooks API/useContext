@@ -1,0 +1,20 @@
+=>共享状态钩子
+
+最外层组件使用
+const appContext = useContext({});
+
+接着封装组件代码👇
+<AppContext.Provider value={{ username:'superawesome'}}>
+    <div className="app">
+        <NavBar/>
+        <Messages/>
+    <div>
+<AppContext.Provider>   👆面代码中提供了一个context对象，这个对象可以被子组件共享.
+
+那子组件该如何使用呢❓
+const NavBar = () => {
+    const {username} = useContext(AppContext);
+    return (
+        <p>{username}</p>
+    )
+}
