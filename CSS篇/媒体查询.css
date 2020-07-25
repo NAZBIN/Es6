@@ -1,0 +1,17 @@
+
+.message-left {
+    img {
+        width: 55px;
+    }
+    video {
+      width: 50px;
+    }
+    @media only screen and (max-width: 767px) {
+      img {
+        width: 50px;
+      }
+      video {
+        width:50px;
+      }
+    }
+  }
