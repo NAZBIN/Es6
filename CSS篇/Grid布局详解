@@ -1,0 +1,53 @@
+👉Gird布局 和 Flex布局对比：
+    1.Flex以轴线为基本，指定项目针对轴线的位置，属于一维布局。
+    2.Gird以行和列来划分容器，产生单元格，然后指定项目所在的单元格，可看作为二维布局，比Flex更强大。
+
+👉容器指定了网格布局以后，接着就要划分行和列。grid-template-columns属性定义每一列的列宽，grid-template-rows属性定义每一行的行高。
+.container {
+  display: grid;
+  grid-template-columns: 100px 100px 100px;  //分别指定每一列的宽度
+  grid-template-rows: 100px 100px 100px;   //分别指定每一行的高度
+}
+
+
+
+👉fr: fr可以与绝对长度的单位结合使用，这时会非常方便。
+
+
+.container {
+  display: grid;
+  grid-template-columns: 150px 1fr 2fr;
+}
+上面代码表示，第一列的宽度为150像素，第二列的宽度是第三列的一半。
+
+
+👉grid-row-gap 属性，grid-column-gap 属性，grid-gap 属性
+
+
+👉这个顺序由grid-auto-flow属性决定，默认值是row，即"先行后列"。也可以将它设成column，变成"先列后行"。
+grid-auto-flow: column;
+
+
+👉Demo：
+    #container{
+        display: grid;
+        grid-template-columns: 100px 100px 100px;
+        grid-template-rows: 100px 100px 100px;
+        grid-auto-flow: row;    // grid-auto-flow: row dense; =>会尽可能紧密填满，尽量不出现空格
+    }
+    
+    .item-1{
+        grid-column-start: 1;
+        grid-column-end: 4;
+        //或者用如下的写法
+        // grid-column: 1 / 4; 
+        // gird-column: 1 / span 3;  => 表示1~4之间跨越3个空格.
+    }
+
+    .item-2 {
+        grid-column-start: 1;
+        grid-column-end: 3; 
+    }
+
+👉justify-items: 设置单元格内容的水平位置 start | end | center | stretch;
+👉align-items: 垂直位置
