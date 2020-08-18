@@ -1,0 +1,8 @@
+async和await 其实它就是Promise和生成器应用，往底层说就是微任务和携程的应用.
+
+async 异步执行，隐式返回
+返回的是一个Promise对象.
+
+await涉及到父线程和子线程的交换,也就是协程的概念。
+执行到await语句的时候，会默认创建一个promise对象，可以看到在executor函数中调用了resolve函数，接着会将该任务提交给为任务队列
+然后js会暂停当前协程的执行，将主线程的控制权交给父线程执行，之后父线程需要调用promise.then来监控promise的改变.

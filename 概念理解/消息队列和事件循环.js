@@ -8,3 +8,7 @@
 //
 
 // Promise的resolve reject.  mutationObserver  , setTimeout宏任务.
+
+
+
+`渲染主线程会循环的从消息队列头部读取任务，执行任务。`

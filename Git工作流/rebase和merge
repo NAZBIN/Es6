@@ -1,0 +1,7 @@
+merge：自动创建一个新的commit
+优点:记录了真实的commit情况，包括每个分支的详情.
+缺点:每次commit会自动产生一个新的merge commit，比较麻烦分支看起来很杂乱
+
+rebase的本质是变基.合并之前的commit历史
+优点：得到更简洁的项目历史,去掉了merge commit.
+缺点: 可能重写commit history.

@@ -1,0 +1,10 @@
+6.说一下BFC以及什么情况下会生成BFC？
+(块级格式化上下文，规定了block-level box是如何进
+行布局。布局规则呢，内部的box在垂直方向一个接一个
+的放置。 BFC是页面上一个被隔离的容器，容器里面的
+子元素不会影响外面的元素，计算高度的时候，浮动的元
+素也参与计算。BFC的出现是为了解决边距重叠问题，常
+见的边距重叠问题有父子之间  和 相邻兄弟元素之间（
+取最大值）BFC还可以变向的用来清除内部浮动，overf
+low:hidden；会生成BFC的元素：display属性不为none的，
+position属性为absoluted和fixed、根元素、display:inline-block\flex、overflow:不为visible)
