@@ -1,0 +1,41 @@
+1.如何使用animation❓
+
+first👉定义@keyframes规则,用来创建动画，然后使用animation将动画规则绑定至某个元素上.
+
+Example: 
+    @keyframes anime-play{
+        from{
+            opacity: 0;
+        }
+        to{
+            opacity: 1;
+        }
+    }
+
+    .box{
+        animation: anime-play 2s ease-in;   
+    }
+
+2.animation有哪些属性❓
+    • animation-name：对应于 @keyframes 定义的动画名称；
+    • animation-duration：定义动画完成的时间，默认是 0，单位可以是秒或毫秒；
+    • animation-timing-function：定义动画的速度曲线，默认是 ease，即低速开始，然后加快，最后变慢；
+    • animation-delay：动画延迟时间，默认是 0，即立刻执行；
+    • animaiton-iteration-count：播放次数，默认是 1，设置为 infinite 则循环播放；
+    • animation-direction：动画是否在下一周期逆向播放，默认是 normal，即正常播放；
+    • animation-fill-mode：规定动画时间之外的状态，设置为 forwards 可以在动画完成后，保留在最后一帧。
+
+
+3.思考: 如何使用animation实现一个loading态❓
+
+@keyframes loading-style{
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
+.loading{
+    animation: loading-style 1.2s linear infinite;
+}

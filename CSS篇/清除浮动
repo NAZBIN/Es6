@@ -1,0 +1,36 @@
+方法1👉：使用一个空的标签
+
+<div class="container">
+    <div class="box_1 float">box 1</div>
+    <div class="box_2 float">box 2</div>
+    <div class="clear"></div>
+</div>
+
+.clear {
+    clear: both;
+}
+
+方法2👉: 使用自带clear属性的br标签
+
+<div class="container">
+    <div class="box_1 float">box 1</div>
+    <div class="box_2 float">box 2</div>
+    <br clear="all"></br>
+</div>
+
+方法3👉：使用overflorw:hidden; 来产生BFC.
+
+方法4👉: after伪元素  该方法本质也是在末尾添加一个看不见的块元素来清除浮动。这个方法也不存在语义化的问题，是目前的主流清除浮动的方法。
+
+<div class="container">
+    <div class="box_1 float">box 1</div>
+    <div class="box_2 float">box 2</div>
+</div>
+
+.container::after{
+    content: '';
+    clear: both;
+    display: block;
+    overflow: hidden;
+    height:0;
+}

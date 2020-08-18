@@ -1,0 +1,14 @@
+Why VueGL ❓ Vue.js render into DOM and three.js renders into Canvas.
+
+What VueGL ❓  VueGL components render data to WebGL canvas declaretively and dynamically.
+
+How to install ❓ npm i vue three vue-gl
+
+Main contains what ❓
+    1.VglRenderer 👉  example:<vgl-renderer class="getting-started"></vgl-renderer>   👉initializes a canvas.
+    
+How to Draw 3D object on canvas ❓ 
+    need what ❓ 
+        1.  define a scene and a camera in VglRenderer’s default slot.
+        scene 决定 图形.
+        camera 决定 位置.
