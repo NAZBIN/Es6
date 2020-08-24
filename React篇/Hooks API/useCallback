@@ -1,0 +1,6 @@
+返回一个 memorized 回调函数. 返回该回调函数的memorized版本.
+
+
+与useMemo呈强关联关系。
+
+useCallback(fn, deps) 👉等同于 👉useMemo(() => fn, deps);
