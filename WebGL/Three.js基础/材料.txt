@@ -1,0 +1,23 @@
+哪几种材料，各自的区别❓
+     1.MeshBasicMaterial 不受光照的影响
+     2.MeshLambertMaterial  仅计算顶点的光照;
+     3.MeshPhongMaterial 计算像素的光照且支持高光
+     越高级的材料对于GUP的能力要求就越高.
+     
+     4.MeshToonMaterial 阴影材料
+     
+
+
+如何设置光泽度❓
+    shininess 属性.
+
+    
+设置物体多面或光滑❓
+    flatShading 
+    THREE.FrontSide
+
+
+如何使用纹理加载图片❓
+const material = new THREE.MeshBasicMaterial({
+    map: loader.load('https://threejsfundamentals.org/threejs/resources/images/wall.jpg'),
+  });

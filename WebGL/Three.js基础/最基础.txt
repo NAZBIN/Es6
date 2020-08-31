@@ -1,0 +1,83 @@
+干嘛的❓ 使用WebGL来绘制三维效果。
+        它帮我们处理了像场景、灯光、阴影、材质、贴图、空间运算、几乎所有你需要自己通过WebGL来实现的东西。
+
+
+过程❓
+    1.创建canvas传给three.js来创建render渲染器
+        const renderer = new THREE.WebGLRenderer({canvas});
+    2.创建一个摄像机  
+        const camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
+    3.创建一个场景 
+        (需要three绘制的东西都要加入到scene中)
+        const scene = new THREE.Scene()
+    4.创建一个包含物体信息的BoxGeometry
+        const geometry = new THREE.BoxGeometry(boxWidth, boxHeight, boxDepth);
+    5.创建一个基本的材质，设置颜色。
+        const material = new THREE.MeshBasicMaterial({color: #000000})
+    6.创建一个Mesh
+        Mesh代表了Geometry和Material的组合, 以及物体在场景中的位置、朝向和缩放。
+        const cube = new THREE.Mesh(geometry, material)
+    7.将Mesh添加到场景中
+        scene.add(cube)
+    8.将scene和camera传递给renderer的render方法来渲染整个场景
+        renderer.render(scene,camera);
+    
+👆以上为基本过程. 此时只会看到三维图形的一个面。
+来看看中阶玩法👇：
+
+    1.添加 render渲染函数. 让三维物体动起来
+        function render(time){
+            time *= 0.001;
+            cube.rotation.x = cube.rotation.y = time;
+            renderer.render(geometry,material);
+            requestAnimationFrame(render);
+        }    
+    2.添加灯光
+        {
+            const color = 0xFFFFFF;
+            const intensity = 1;
+            const light = new THREE.DirectionalLight(color, intensity);
+            light.position.set(-1,2,4);
+            scene.add(light);
+        }
+        除此之外还需要将BacicMatierial变为会受灯光影响的MeshPhongMaterial
+        const material = new THREE.MeshPhongMaterial({color: 0x44aa88});
+    3.创建可以根据指定颜色生成新材质的函数
+        function makeInstance(geometry,color,x){
+            const material = new THREE.MeshPhongMaterial({color});
+            const cube = new THREE.mesh(geometry,material);
+            scene.add(cube);
+            cube.position.x = x;
+        }
+
+摄像机❓
+    几个概念：
+        1.fov: filed of view.
+        2.aspect: 显示比例, 如300×150像素, aspect值为300/150=2
+        3.near、far：摄像机前方要渲染的空间。
+        so👉成像的高度由fov决定, 宽度由fov和aspect共同决定.
+
+
+object3D❓
+    just represents a local sapce.
+
+
+辅助工具❓ 
+    1.// add an AxesHelper to each node  辅助线
+    objects.forEach((node) => {
+    const axes = new THREE.AxesHelper();
+    axes.material.depthTest = false;
+    axes.renderOrder = 1;
+    node.add(axes);
+    });
+    2.// both a GridHelper and an AxesHelper 辅助线+网格
+    function makeAxisGrid(node, label, units) {
+        const helper = new AxisGridHelper(node, units);
+        gui.add(helper, 'visible').name(label);
+    }
+        
+    makeAxisGrid(solarSystem, 'solarSystem', 25);
+    makeAxisGrid(sunMesh, 'sunMesh');
+    makeAxisGrid(earthOrbit, 'earthOrbit');
+    makeAxisGrid(earthMesh, 'earthMesh');
+    makeAxisGrid(moonMesh, 'moonMesh');

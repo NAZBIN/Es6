@@ -44,6 +44,7 @@ function setTimeout(callback, delay) {
   let now = Date.now();
   const loop = () => {
     timer = window.requestAnimationFrame(loop);
+    console.log("aaa");
     if (Date.now() - now >= delay) {
       callback();
       cancelAnimationFrame(timer);
@@ -57,3 +58,17 @@ setTimeout(() => {
 }, 3000);
 
 console.log("end");
+
+
+function setTimeout(callback,delay){
+  let now =  Date.now();
+  let timer 
+  const loop = ()=>{
+    timer = requestAnimationFrame(loop);
+    if(Date.now - now >= delay){
+      callback();
+      cancelAnimationFrame(timer);
+    }
+  }
+  window.requestAnimationFrame(loop);
+}
