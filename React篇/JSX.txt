@@ -1,0 +1,2 @@
+什么是JSX ❓
+    所谓的JSX就是Js对象，react中的JSX其实是React.creatElement的封装。JSX通过babel或React构造器转换成JS对象，再通过Reacdom.render渲染为Dom，再在页面上渲染出来。JSX可以将UI和逻辑处理放在一起。
