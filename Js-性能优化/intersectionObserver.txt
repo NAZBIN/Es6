@@ -1,0 +1,7 @@
+为什么要用IntersectionObserver❓
+    在开发miui以及Miot的时候会有一个需求：观察目标元素是否出现在视口。
+    传统的使用方式也就是我第一次做这个的时候使用的方法是用scroll事件，但当scroll事件密集发生的时候，容易造成性能问题.
+
+    监听目标元素也即是就是目标元素和视口产生的交叉区, IntersectionObserver就是用来做这样的事的。
+    IntersectionObserver构造函数返回的是一个观察者实例, MDN对其的解释是异步的观察目标元素与视口交叉区域的变化。
+    通过observe和unobserve来观察一个目标或停止对目标的观察
