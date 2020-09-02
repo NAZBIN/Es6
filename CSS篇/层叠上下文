@@ -1,0 +1,7 @@
+什么是层叠上下文❓
+    其实是对html元素进行的一个三维构想，想象成元素在z轴排开。
+
+哪些css属性会产生层叠上下文❓
+    和空间顺序关系相关，首先想到的是z-index,
+    还有position属性中的absolute和fixed，除此之外还有想要进行预渲染动画的will-change,
+    还有opacity属性不为1的，以及两种布局flex和grid.
