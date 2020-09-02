@@ -1,5 +1,5 @@
 /*
-    懒加载 lazyload demo.
+    懒加载 lazyload demo. 👉 只有目标区域可见时，才会将模板内容插入到真实DOM，从而引发静态资源的加载。
 */
 
 function query(selector){
