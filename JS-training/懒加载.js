@@ -7,6 +7,7 @@ function query(selector){
 }
 
 var observer = new IntersectionObserver(function(changes){
+    if (changes[0].intersectionRatio <= 0) return;
     changes.forEach((change) => {
         let container = change.target;
         let content = change.querySelector('example').innerHTML;

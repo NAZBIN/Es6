@@ -1,1 +1,3 @@
 只有在滚动到视口区域的时候才加载,可以节省宽带,提升性能.
+
+可以通过IntersectionObserver来实现懒加载 demo 见 JS-training .
