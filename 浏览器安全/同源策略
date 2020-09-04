@@ -1,0 +1,1 @@
+限制XMLHttpRequest 向不同源的地址发送当前源的数据.
