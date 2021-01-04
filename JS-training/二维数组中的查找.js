@@ -25,4 +25,4 @@ let arr = [
   [10, 13, 14, 17, 24],
   [18, 21, 23, 26, 30],
 ];
-console.log(findNumberIn2DArray([], 0));
+console.log(findNumberIn2DArray([], 3));

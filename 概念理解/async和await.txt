@@ -1,4 +1,4 @@
-async和await 其实它就是Promise和生成器应用，往底层说就是微任务和携程的应用.
+async和await 其实它就是Promise和生成器应用，往底层说就是微任务和协程的应用.
 
 async 异步执行，隐式返回
 返回的是一个Promise对象.

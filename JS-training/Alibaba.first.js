@@ -7,11 +7,6 @@ output: {"userId":293019239304,"title":"我的双11"}
 const str =
   "http://www.taobao.com/1111/my/index.html?userId=293019239304&title=我的双11";
 
-function getQueryFun(input) {
-  let arr = input.split("?")[1];
-  console.log(arr);
-}
-
 function getQuery(input) {
   // judge
 

@@ -21,7 +21,7 @@ let person2 = {
 const name = "window";
 
 person1.sayHi.call(person2); //Daming.
-console.log(person2.name)
+person1.sayHi();
 
 //  ---------------手动实现 call 方法(无参)----------------
 // Function.prototype.MyCall = function (context = window) {
@@ -45,16 +45,15 @@ Function.prototype.mycall = function (context = window) {
   return result;
 };
 
-
 function basicMessage(name, age) {
   this.name = name;
   this.age = age;
 }
 
 function entity(name, age) {
+  console.log(this.name);
   basicMessage.mycall(this, name, age);
+
   this.type = "animal";
 }
-console.log(new entity("tom", 16).name);
-
-
+console.log(new entity("tom", 16).age);
