@@ -1,0 +1,8 @@
+shift+command+P 快捷搜索（command+P 文件搜索)
+shift+command+L 编辑多个
+shift+command+K 删除整行
+shift+option+⬆️⬇️ 复制并插入新的行
+shift+option+F 格式化
+command+/ 注释
+command+K command+0 折叠代码
+command+K command+J 代码展开
